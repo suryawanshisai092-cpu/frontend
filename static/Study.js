@@ -285,6 +285,69 @@ function escapeHtml(str){
 
 }
 
+function sendOTP(){
+
+  const email = regEmail.value.trim();
+
+  if(!email){
+    alert("Enter email first");
+    return;
+  }
+
+  fetch(API + "/sendOTP",{
+    method:"POST",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"},
+    body:`email=${encodeURIComponent(email)}`
+  })
+  .then(res=>res.text())
+  .then(data=>{
+
+      if(data==="OTP_SENT"){
+          alert("OTP sent to email");
+      }
+      else{
+          alert("OTP failed");
+      }
+
+  });
+
+
+
+
+
+
+  function checkRegister(){
+
+  const u = regUser.value.trim();
+  const e = regEmail.value.trim();
+  const p = regPass.value.trim();
+  const o = regOTP.value.trim();
+
+  if(!u || !e || !p || !o){
+    regError.textContent="All fields required";
+    return;
+  }
+
+  fetch(API + "/verifyOTP",{
+    method:"POST",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"},
+    body:`username=${encodeURIComponent(u)}&email=${encodeURIComponent(e)}&password=${encodeURIComponent(p)}&otp=${encodeURIComponent(o)}`
+  })
+  .then(res=>res.text())
+  .then(data=>{
+
+      if(data==="SUCCESS"){
+          alert("Registration successful");
+          toggle();
+      }
+      else{
+          regError.textContent="Invalid OTP";
+      }
+
+  });
+
+}
+}
 
 
 
