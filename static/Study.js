@@ -285,36 +285,17 @@ function escapeHtml(str){
 
 }
 
-function sendOTP(){
+if(data==="OTP_SENT"){
 
-  const email = regEmail.value.trim();
+    alert("OTP sent to email");
 
-  if(!email){
-    alert("Enter email first");
-    return;
-  }
+    const otpField=document.getElementById("otpField");
+    const passField=document.getElementById("passField");
+    const regBtn=document.getElementById("registerBtn");
 
-  fetch(API + "/sendOTP",{
-    method:"POST",
-    headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:`email=${encodeURIComponent(email)}`
-  })
-  .then(res=>res.text())
-  .then(data=>{
-
-      if(data==="OTP_SENT"){
-
-          alert("OTP sent to email");
-
-          document.getElementById("otpField").style.display="block";
-          document.getElementById("passField").style.display="block";
-          document.getElementById("registerBtn").style.display="block";
-
-      } else{
-          alert("OTP send failed");
-      }
-
-  });
+    if(otpField) otpField.style.display="block";
+    if(passField) passField.style.display="block";
+    if(regBtn) regBtn.style.display="block";
 
 }
 
@@ -353,4 +334,5 @@ function checkRegister(){
   });
 
 }
+
 
