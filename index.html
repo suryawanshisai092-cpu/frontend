@@ -119,19 +119,22 @@ href="https://img.freepik.com/free-vector/gradient-high-school-logo_23-214964772
       <div class="field">
         <input id="regEmail" placeholder="Email">
       </div>
-
+  <button class="btn" onclick="sendOTP()">Send OTP</button>
 
 		
-      <div class="field password-field">
-  <input id="regPass" type="password" placeholder="Password">
-  <i class="fa-solid fa-eye eye-icon" id="toggleRegPassword"></i>
-</div>
-
-		<div class="field">
+ <!-- OTP field hidden initially -->
+  <div class="field" id="otpField" style="display:none;">
     <input id="regOTP" placeholder="Enter OTP">
   </div>
 
-  <button class="btn" onclick="sendOTP()">Send OTP</button>
+  <!-- Password hidden initially -->
+  <div class="field" id="passField" style="display:none;">
+    <input id="regPass" type="password" placeholder="Password">
+  </div>
+ <i class="fa-solid fa-eye eye-icon" id="toggleRegPassword"></i>
+		
+
+
       <div id="regError" class="error"></div>
       <button class="btn" onclick="checkRegister()">Register</button>
       <div class="switch">
@@ -247,5 +250,6 @@ href="https://img.freepik.com/free-vector/gradient-high-school-logo_23-214964772
 <script src="/static/Study.js"></script>
 </body>
 </html>
+
 
 
