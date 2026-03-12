@@ -303,20 +303,26 @@ function sendOTP(){
   .then(data=>{
 
       if(data==="OTP_SENT"){
+
           alert("OTP sent to email");
-      }
-      else{
-          alert("OTP failed");
+
+          document.getElementById("otpField").style.display="block";
+          document.getElementById("passField").style.display="block";
+          document.getElementById("registerBtn").style.display="block";
+
+      } else{
+          alert("OTP send failed");
       }
 
   });
 
+}
 
 
 
 
 
-  function checkRegister(){
+function checkRegister(){
 
   const u = regUser.value.trim();
   const e = regEmail.value.trim();
@@ -347,7 +353,4 @@ function sendOTP(){
   });
 
 }
-}
-
-
 
