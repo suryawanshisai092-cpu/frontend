@@ -285,17 +285,45 @@ function escapeHtml(str){
 
 }
 
-if(data==="OTP_SENT"){
+function sendOTP(){
 
-    alert("OTP sent to email");
+  const email = regEmail.value.trim();
 
-    const otpField=document.getElementById("otpField");
-    const passField=document.getElementById("passField");
-    const regBtn=document.getElementById("registerBtn");
+  if(!email){
+    alert("Enter email first");
+    return;
+  }
 
-    if(otpField) otpField.style.display="block";
-    if(passField) passField.style.display="block";
-    if(regBtn) regBtn.style.display="block";
+  fetch(API + "/sendOTP",{
+    method:"POST",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"},
+    body:`email=${encodeURIComponent(email)}`
+  })
+  .then(res=>res.text())
+  .then(data=>{
+
+      if(data==="OTP_SENT"){
+
+          alert("OTP sent to email");
+
+          const otpField = document.getElementById("otpField");
+          const passField = document.getElementById("passField");
+          const regBtn = document.getElementById("registerBtn");
+
+          if(otpField) otpField.style.display = "block";
+          if(passField) passField.style.display = "block";
+          if(regBtn) regBtn.style.display = "block";
+
+      } 
+      else{
+          alert("OTP send failed");
+      }
+
+  })
+  .catch(err=>{
+      console.error(err);
+      alert("Server error");
+  });
 
 }
 
@@ -334,5 +362,6 @@ function checkRegister(){
   });
 
 }
+
 
 
