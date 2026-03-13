@@ -377,32 +377,7 @@ function toggle(){
 }
 
 /* ---------- REGISTER ---------- */
-function checkRegister() {
 
-  const u = regUser.value.trim();
-  const e = regEmail.value.trim();
-  const p = regPass.value.trim();
-
-  if (!u || !e || !p) {
-    regError.textContent = "All fields required";
-    return;
-  }
-
-  fetch(API + "/register", {
-    method: "POST",
-    headers: {"Content-Type":"application/x-www-form-urlencoded"},
-    body:`username=${encodeURIComponent(u)}&email=${encodeURIComponent(e)}&password=${encodeURIComponent(p)}`
-  })
-  .then(res=>res.text())
-  .then(data=>{
-    if(data==="SUCCESS"){
-      alert("Registration successful");
-      toggle();
-    } else {
-      regError.textContent="Registration failed";
-    }
-  });
-}
 
 /* ---------- LOGIN ---------- */
 function checkLogin(){
@@ -694,32 +669,7 @@ function toggle(){
 }
 
 /* ---------- REGISTER ---------- */
-function checkRegister() {
 
-  const u = regUser.value.trim();
-  const e = regEmail.value.trim();
-  const p = regPass.value.trim();
-
-  if (!u || !e || !p) {
-    regError.textContent = "All fields required";
-    return;
-  }
-
-  fetch(API + "/register", {
-    method: "POST",
-    headers: {"Content-Type":"application/x-www-form-urlencoded"},
-    body:`username=${encodeURIComponent(u)}&email=${encodeURIComponent(e)}&password=${encodeURIComponent(p)}`
-  })
-  .then(res=>res.text())
-  .then(data=>{
-    if(data==="SUCCESS"){
-      alert("Registration successful");
-      toggle();
-    } else {
-      regError.textContent="Registration failed";
-    }
-  });
-}
 
 /* ---------- LOGIN ---------- */
 function checkLogin(){
@@ -927,31 +877,7 @@ function escapeHtml(str){
 
 
 
-function checkRegister(){
 
-  const u = regUser.value.trim();
-  const e = regEmail.value.trim();
-  const p = regPass.value.trim();
-
-  fetch(API + "/register",{
-    method:"POST",
-    headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:`username=${encodeURIComponent(u)}&email=${encodeURIComponent(e)}&password=${encodeURIComponent(p)}`
-  })
-  .then(res=>res.text())
-  .then(data=>{
-
-      if(data==="SUCCESS"){
-          alert("Registration successful");
-          toggle();
-      }
-      else{
-          regError.textContent="Registration failed";
-      }
-
-  });
-
-}
 
 const togglePassword = document.getElementById("togglePassword");
 const loginPass = document.getElementById("loginPass");
@@ -996,6 +922,7 @@ function openStudentSection(section){
   }
 
 }
+
 
 
 
