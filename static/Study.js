@@ -8,25 +8,6 @@ let allNotes = [];
 const API = "https://studyx-backend-brif.onrender.com";
 
 
-function openStudentSection(section){
-
-  document.getElementById("notesPage").style.display = "none";
-  document.getElementById("booksPage").style.display = "none";
-  document.getElementById("impPage").style.display = "none";
-
-  if(section === "notes"){
-      document.getElementById("notesPage").style.display = "block";
-  }
-
-  if(section === "books"){
-      document.getElementById("booksPage").style.display = "block";
-  }
-
-  if(section === "imp"){
-      document.getElementById("impPage").style.display = "block";
-  }
-
-}
 
 /* ---------- DEFAULT LANDING ---------- */
 window.onload = function () {
@@ -356,6 +337,34 @@ togglePassword.addEventListener("click", function () {
   }
 
 });
+
+
+function openStudentSection(section){
+
+  const notes = document.getElementById("notesPage");
+  const books = document.getElementById("booksPage");
+  const imp = document.getElementById("impPage");
+
+  // hide all
+  notes.style.display = "none";
+  books.style.display = "none";
+  imp.style.display = "none";
+
+  // show selected
+  if(section === "notes"){
+      notes.style.display = "block";
+  }
+
+  if(section === "books"){
+      books.style.display = "block";
+  }
+
+  if(section === "imp"){
+      imp.style.display = "block";
+  }
+
+}
+
 
 
 
