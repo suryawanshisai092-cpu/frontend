@@ -287,3 +287,11 @@ togglePassword.addEventListener("click", function(){
 });
 
 
+
+/* ========= LOGOUT ========= */
+
+function logout(){
+
+  location.reload();
+
+}
