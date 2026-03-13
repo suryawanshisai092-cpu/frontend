@@ -37,6 +37,53 @@ function loadAllNotes(){
 
 }
 
+function loadStudentNotesByYear(){
+
+  const year = document.getElementById("yearFilter").value;
+
+  let category="";
+  let cardId="";
+
+  if(currentStudentSection==="notes"){
+    category="Notes";
+    cardId="notesCards";
+  }
+
+  if(currentStudentSection==="books"){
+    category="Books";
+    cardId="booksCards";
+  }
+
+  if(currentStudentSection==="imp"){
+    category="Imp";
+    cardId="impCards";
+  }
+
+  fetch(API + "/getNotes?year="+year)
+  .then(res=>res.json())
+  .then(notes=>{
+
+    const box=document.getElementById(cardId);
+    box.innerHTML="";
+
+    notes
+    .filter(n=>n.category===category)
+    .forEach(n=>{
+
+      box.innerHTML+=`
+        <div class="card">
+          <h3>${n.title}</h3>
+          <p>${n.description}</p>
+          <a class="btn" href="${n.file_url}" target="_blank">Open</a>
+        </div>
+      `;
+
+    });
+
+  });
+
+}
+
 /* ========= LOGIN PANEL ========= */
 
 function openPanel(){
@@ -212,3 +259,4 @@ togglePassword.addEventListener("click", function(){
   }
 
 });
+
