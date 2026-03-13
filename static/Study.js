@@ -216,24 +216,50 @@ function checkLogin(){
 
 /* ========= STUDENT SECTION SWITCH ========= */
 
+/* ========= STUDENT SECTION SWITCH ========= */
+
 function openStudentSection(section){
 
   currentStudentSection = section;
 
-  document.getElementById("notesPage").style.display = "none";
-  document.getElementById("booksPage").style.display = "none";
-  document.getElementById("impPage").style.display = "none";
+  const notesPage = document.getElementById("notesPage");
+  const booksPage = document.getElementById("booksPage");
+  const impPage = document.getElementById("impPage");
 
+  // hide all pages
+  notesPage.style.display = "none";
+  booksPage.style.display = "none";
+  impPage.style.display = "none";
+
+  // show selected page
   if(section === "notes"){
-      document.getElementById("notesPage").style.display = "block";
+      notesPage.style.display = "block";
   }
 
   if(section === "books"){
-      document.getElementById("booksPage").style.display = "block";
+      booksPage.style.display = "block";
   }
 
   if(section === "imp"){
-      document.getElementById("impPage").style.display = "block";
+      impPage.style.display = "block";
+  }
+
+  // remove active from all buttons
+  document.getElementById("btnNotes").classList.remove("active");
+  document.getElementById("btnBooks").classList.remove("active");
+  document.getElementById("btnImp").classList.remove("active");
+
+  // add active to selected button
+  if(section === "notes"){
+      document.getElementById("btnNotes").classList.add("active");
+  }
+
+  if(section === "books"){
+      document.getElementById("btnBooks").classList.add("active");
+  }
+
+  if(section === "imp"){
+      document.getElementById("btnImp").classList.add("active");
   }
 
   loadStudentNotesByYear();
@@ -259,4 +285,5 @@ togglePassword.addEventListener("click", function(){
   }
 
 });
+
 
