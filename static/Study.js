@@ -345,3 +345,14 @@ function logout(){
 
 }
 
+/* ---------- ESCAPE HTML ---------- */
+
+function escapeHtml(str){
+
+  return String(str)
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;");
+
+}
+
