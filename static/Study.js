@@ -366,9 +366,7 @@ function openStudentSection(section){
 }
 
 
-window.onload = function(){
-  openStudentSection("notes");
-};
+
 
 
 
