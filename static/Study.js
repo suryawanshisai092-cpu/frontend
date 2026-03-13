@@ -287,6 +287,55 @@ togglePassword.addEventListener("click", function(){
 });
 
 
+/* ---------- ADMIN LOAD NOTES ---------- */
+
+function loadAdminNotes(){
+
+  fetch(API + "/getNotes")
+  .then(res=>res.json())
+  .then(notes=>{
+
+    const box = document.getElementById("adminCards");
+    box.innerHTML = "";
+
+    if(notes.length === 0){
+      box.innerHTML = "<p>No notes</p>";
+      return;
+    }
+
+    notes.forEach(n => {
+
+      box.innerHTML += `
+
+      <div class="card" data-year="${n.year}" data-type="${n.category}">
+
+        <div class="card-actions">
+
+          <button class="edit-btn"
+          onclick="editNote(${n.id},'${escapeHtml(n.title)}','${escapeHtml(n.description)}','${n.year}','${n.category}')">
+          ✏️
+          </button>
+
+          <button class="delete-btn" onclick="deleteNote(${n.id})">
+          🗑
+          </button>
+
+        </div>
+
+        <h3>${escapeHtml(n.title)}</h3>
+        <p>${escapeHtml(n.description)}</p>
+        <a class="btn" href="${n.file_url}" target="_blank">Open</a>
+
+      </div>
+
+      `;
+
+    });
+
+  });
+
+}
+
 
 /* ========= LOGOUT ========= */
 
@@ -295,3 +344,4 @@ function logout(){
   location.reload();
 
 }
+
