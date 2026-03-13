@@ -166,14 +166,14 @@ href="https://img.freepik.com/free-vector/gradient-high-school-logo_23-214964772
     <div class="error" id="noteError"></div>
   </div>
 <div class="admin-filter">
-  <select id="adminYearFilter">
+  <select id="adminYearFilter" onchange="filterAdminNotes()">
     <option value="all">All Years</option>
     <option value="FY">FY</option>
     <option value="SY">SY</option>
     <option value="TY">TY</option>
   </select>
 
-  <select id="adminTypeFilter">
+  <select id="adminTypeFilter" onchange="filterAdminNotes()">
     <option value="all">All Types</option>
     <option value="Notes">Notes</option>
     <option value="Books">Books</option>
@@ -239,6 +239,7 @@ href="https://img.freepik.com/free-vector/gradient-high-school-logo_23-214964772
 <script src="/static/Study.js"></script>
 </body>
 </html>
+
 
 
 
