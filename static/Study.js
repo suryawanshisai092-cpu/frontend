@@ -317,6 +317,18 @@ function checkRegister(){
 
 }
 
+const togglePassword = document.getElementById("togglePassword");
+const loginPass = document.getElementById("loginPass");
+
+togglePassword.addEventListener("click", function () {
+
+  const type = loginPass.getAttribute("type") === "password" ? "text" : "password";
+  loginPass.setAttribute("type", type);
+
+  this.classList.toggle("fa-eye-slash");
+
+});
+
 
 
 
