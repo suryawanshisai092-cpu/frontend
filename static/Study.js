@@ -322,12 +322,20 @@ const loginPass = document.getElementById("loginPass");
 
 togglePassword.addEventListener("click", function () {
 
-  const type = loginPass.getAttribute("type") === "password" ? "text" : "password";
-  loginPass.setAttribute("type", type);
+  const type = loginPass.type === "password" ? "text" : "password";
+  loginPass.type = type;
 
-  this.classList.toggle("fa-eye-slash");
+  // icon change
+  if(type === "text"){
+      togglePassword.classList.remove("fa-eye");
+      togglePassword.classList.add("fa-eye-slash");
+  }else{
+      togglePassword.classList.remove("fa-eye-slash");
+      togglePassword.classList.add("fa-eye");
+  }
 
 });
+
 
 
 
