@@ -336,6 +336,31 @@ function loadAdminNotes(){
 
 }
 
+/* ----------Filter Admin Notes ---------- */
+function filterAdminNotes(){
+
+  const year = document.getElementById("adminYearFilter").value;
+  const type = document.getElementById("adminTypeFilter").value;
+
+  const cards = document.querySelectorAll("#adminCards .card");
+
+  cards.forEach(card => {
+
+    const cardYear = card.getAttribute("data-year");
+    const cardType = card.getAttribute("data-type");
+
+    let yearMatch = (year === "all" || year === cardYear);
+    let typeMatch = (type === "all" || type === cardType);
+
+    if(yearMatch && typeMatch){
+      card.style.display = "block";
+    }else{
+      card.style.display = "none";
+    }
+
+  });
+
+}
 
 /* ========= LOGOUT ========= */
 
@@ -355,4 +380,5 @@ function escapeHtml(str){
   .replace(/>/g,"&gt;");
 
 }
+
 
