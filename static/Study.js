@@ -285,47 +285,7 @@ function escapeHtml(str){
 
 }
 
-function sendOTP(){
 
-  const email = regEmail.value.trim();
-
-  if(!email){
-    alert("Enter email first");
-    return;
-  }
-
-  fetch(API + "/sendOTP",{
-    method:"POST",
-    headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:`email=${encodeURIComponent(email)}`
-  })
-  .then(res=>res.text())
-  .then(data=>{
-
-      if(data==="OTP_SENT"){
-
-          alert("OTP sent to email");
-
-          const otpField = document.getElementById("otpField");
-          const passField = document.getElementById("passField");
-          const regBtn = document.getElementById("registerBtn");
-
-          if(otpField) otpField.style.display = "block";
-          if(passField) passField.style.display = "block";
-          if(regBtn) regBtn.style.display = "block";
-
-      } 
-      else{
-          alert("OTP send failed");
-      }
-
-  })
-  .catch(err=>{
-      console.error(err);
-      alert("Server error");
-  });
-
-}
 
 
 
@@ -336,17 +296,11 @@ function checkRegister(){
   const u = regUser.value.trim();
   const e = regEmail.value.trim();
   const p = regPass.value.trim();
-  const o = regOTP.value.trim();
 
-  if(!u || !e || !p || !o){
-    regError.textContent="All fields required";
-    return;
-  }
-
-  fetch(API + "/verifyOTP",{
+  fetch(API + "/register",{
     method:"POST",
     headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:`username=${encodeURIComponent(u)}&email=${encodeURIComponent(e)}&password=${encodeURIComponent(p)}&otp=${encodeURIComponent(o)}`
+    body:`username=${encodeURIComponent(u)}&email=${encodeURIComponent(e)}&password=${encodeURIComponent(p)}`
   })
   .then(res=>res.text())
   .then(data=>{
@@ -356,12 +310,13 @@ function checkRegister(){
           toggle();
       }
       else{
-          regError.textContent="Invalid OTP";
+          regError.textContent="Registration failed";
       }
 
   });
 
 }
+
 
 
 
