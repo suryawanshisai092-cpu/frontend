@@ -361,6 +361,78 @@ function filterAdminNotes(){
   });
 
 }
+function deleteNote(id){
+
+  if(!confirm("Delete this note?")) return;
+
+  fetch(API + "/deleteNote?id=" + id)
+  .then(res => res.text())
+  .then(data => {
+
+    if(data === "SUCCESS"){
+      alert("Note deleted");
+      loadAdminNotes();
+    }else{
+      alert("Delete failed");
+    }
+
+  });
+
+}
+function editNote(id,title,desc,year,category){
+
+  noteTitle.value = title;
+  noteDesc.value = desc;
+
+  document.getElementById("noteYear").value = year;
+  document.getElementById("noteCategory").value = category;
+
+  editId = id;
+
+}
+
+function addNote(){
+
+  const title = noteTitle.value.trim();
+  const desc = noteDesc.value.trim();
+  const link = noteLink.value.trim();
+  const category = document.getElementById("noteCategory").value;
+  const year = document.getElementById("noteYear").value;
+
+  if(!title || !desc || !link){
+    noteError.textContent = "Fill all fields";
+    return;
+  }
+
+  const params = new URLSearchParams();
+
+  params.append("title",title);
+  params.append("description",desc);
+  params.append("fileUrl",link);
+  params.append("category",category);
+  params.append("year",year);
+
+  if(editId){
+    params.append("id",editId);
+  }
+
+  fetch(API + "/uploadNote",{
+    method:"POST",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"},
+    body:params.toString()
+  })
+  .then(res=>res.text())
+  .then(data=>{
+
+    if(data==="SUCCESS"){
+      alert("Saved successfully");
+      editId = null;
+      loadAdminNotes();
+    }
+
+  });
+
+}
 
 /* ========= LOGOUT ========= */
 
@@ -380,5 +452,6 @@ function escapeHtml(str){
   .replace(/>/g,"&gt;");
 
 }
+
 
 
