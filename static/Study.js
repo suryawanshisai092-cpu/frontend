@@ -341,26 +341,24 @@ togglePassword.addEventListener("click", function () {
 
 function openStudentSection(section){
 
-  const notes = document.getElementById("notesPage");
-  const books = document.getElementById("booksPage");
-  const imp = document.getElementById("impPage");
+  const notesPage = document.getElementById("notesPage");
+  const booksPage = document.getElementById("booksPage");
+  const impPage = document.getElementById("impPage");
 
-  // hide all
-  notes.style.display = "none";
-  books.style.display = "none";
-  imp.style.display = "none";
+  notesPage.style.display = "none";
+  booksPage.style.display = "none";
+  impPage.style.display = "none";
 
-  // show selected
   if(section === "notes"){
-      notes.style.display = "block";
+      notesPage.style.display = "block";
   }
 
   if(section === "books"){
-      books.style.display = "block";
+      booksPage.style.display = "block";
   }
 
   if(section === "imp"){
-      imp.style.display = "block";
+      impPage.style.display = "block";
   }
 
 }
