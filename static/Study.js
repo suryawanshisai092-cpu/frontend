@@ -7,6 +7,27 @@ let allNotes = [];
 // 🔗 Render Backend URL
 const API = "https://studyx-backend-brif.onrender.com";
 
+
+function openStudentSection(section){
+
+  document.getElementById("notesPage").style.display = "none";
+  document.getElementById("booksPage").style.display = "none";
+  document.getElementById("impPage").style.display = "none";
+
+  if(section === "notes"){
+      document.getElementById("notesPage").style.display = "block";
+  }
+
+  if(section === "books"){
+      document.getElementById("booksPage").style.display = "block";
+  }
+
+  if(section === "imp"){
+      document.getElementById("impPage").style.display = "block";
+  }
+
+}
+
 /* ---------- DEFAULT LANDING ---------- */
 window.onload = function () {
   landing.style.display = "block";
@@ -335,6 +356,7 @@ togglePassword.addEventListener("click", function () {
   }
 
 });
+
 
 
 
