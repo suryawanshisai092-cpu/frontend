@@ -994,7 +994,7 @@ html, body{
 }
 
 
-.user-btn,
+
 .logout-fixed{
 
 position:fixed;
@@ -1013,18 +1013,7 @@ cursor:pointer;
 
 transition:all 0.3s ease;
 }
-.user-btn{
-right:110px;
 
-background:transparent;
-color:#fff;
-border:2px solid #ffd700;
-}
-
-.user-btn:hover{
-background:#ffd700;
-color:#000;
-}
 
 .logout-fixed{
 right:20px;
@@ -1034,69 +1023,4 @@ color:#00bfff;
 border:2px solid #00bfff;
 }
 
-.back-fixed{
-position:fixed;
-top:20px;
-right:120px;
-padding:8px 18px;
-background:#2d3e50;
-color:white;
-border:2px solid gold;
-border-radius:8px;
-cursor:pointer;
-}
-#usersList{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
-max-width:1000px;
-margin:60px auto;
-padding:0 20px;
-}
-#usersList button{
-width:100%;
-padding:9px;
 
-border:none;
-border-radius:8px;
-
-background:#2e3440;
-color:#fff;
-
-cursor:pointer;
-transition:all 0.25s ease;
-}
-
-#usersList button:hover{
-background:#ff4d4d;
-}
-
-#usersList button:hover{
-background:#e74c3c;
-}
-#usersPage h2{
-text-align:center;
-margin-top:60px;
-}
-#usersList h3{
-font-size:20px;
-color:#ffffff;
-margin-bottom:6px;
-}
-#usersList .card{
-background:#081a34;
-padding:22px;
-border-radius:14px;
-
-box-shadow:0 8px 20px rgba(0,0,0,0.35);
-transition:all 0.3s ease;
-}
-#usersList .card:hover{
-transform:translateY(-6px);
-box-shadow:0 12px 25px rgba(0,0,0,0.45);
-}
-#usersList p{
-color:#b9c6d8;
-font-size:14px;
-margin-bottom:14px;
-}
