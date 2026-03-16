@@ -458,6 +458,8 @@ fetch(API + "/getUsers")
 .then(res=>res.json())
 .then(users=>{
 
+console.log(users);   
+
 const box=document.getElementById("usersList");
 box.innerHTML="";
 
