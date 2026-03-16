@@ -1008,12 +1008,23 @@ html, body{
 position:fixed;
 top:20px;
 right:120px;
-padding:8px 16px;
-background:#2d3e50;
-color:white;
-border:2px solid gold;
+
+padding:8px 18px;
+font-size:14px;
+
+background:transparent;
+color:#fff;
+
+border:2px solid #ffd700;
 border-radius:8px;
+
 cursor:pointer;
+transition:all 0.3s ease;
+}
+.user-btn:hover{
+background:#ffd700;
+color:#000;
+transform:scale(1.05);
 }
 
 .back-fixed{
