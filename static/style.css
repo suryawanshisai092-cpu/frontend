@@ -1050,35 +1050,48 @@ margin-bottom:40px;
 
 
 #usersList{
+width:90%;
+max-width:1100px;
+margin:60px auto;
+
 display:flex;
 flex-direction:column;
-gap:14px;
+
+gap:10px;
 }
 
 
 .user-row{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
 
+width:100%;
+
 background:#081a34;
-padding:16px 20px;
+padding:18px 25px;
 
 border-radius:10px;
 
-transition:all 0.3s ease;
+transition:all 0.25s ease;
+
 }
+
 .user-row:hover{
+
 background:#0e2647;
+
 }
 
 .user-row:hover{
 background:#0e2647;
+transform:scale(1.01);
 }
 
 .user-info h3{
 font-size:18px;
-margin-bottom:4px;
+margin-bottom:3px;
 }
 
 .user-info p{
@@ -1087,15 +1100,21 @@ color:#b8c4d9;
 }
 
 .delete-icon{
+
 opacity:0;
-color:#ff4d4d;
 font-size:18px;
+color:#ff4d4d;
+
 cursor:pointer;
+
 transition:0.2s;
+
 }
 
 .user-row:hover .delete-icon{
+
 opacity:1;
+
 }
 
 
