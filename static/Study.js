@@ -173,16 +173,17 @@ function checkLogin(){
   const u = loginUser.value.trim();
   const p = loginPass.value.trim();
 
-  fetch(API + "/login",{
+fetch(API + "/login",{
 
-    method:"POST",
-    headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:`username=${encodeURIComponent(u)}&password=${encodeURIComponent(p)}`
+  method:"POST",
+  headers:{"Content-Type":"application/x-www-form-urlencoded"},
+  body:`username=${encodeURIComponent(u)}&password=${encodeURIComponent(p)}`
 
-  })
- .then(data=>{
+})
+.then(res => res.text())   // 🔥 missing step
+.then(data => {
 
-data = data.trim();   // 🔥 important
+data = data.trim();
 
 panel.style.display="none";
 dashboard.style.display="none";
