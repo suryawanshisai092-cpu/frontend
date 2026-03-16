@@ -508,17 +508,7 @@ background:linear-gradient(135deg,
 /* =========================================
    LOGOUT BUTTON
 ========================================= */
-.logout-fixed{
-  position:fixed;
-  top:20px;
-  right:25px;
-  padding:8px 15px;
-  border-radius:8px;
-  border:1px solid #38bdf8;
-  background:transparent;
-  color:#38bdf8;
-  cursor:pointer;
-}
+
 
 .logout-fixed:hover{
   background:#38bdf8;
@@ -1004,27 +994,44 @@ html, body{
 }
 
 
-.user-btn{
-position:fixed;
-top:30px;
-right:110px;
+.user-btn,
+.logout-fixed{
 
-padding:8px 18px;
+position:fixed;
+top:20px;
+
+height:38px;
+padding:0 18px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
 font-size:14px;
+border-radius:8px;
+cursor:pointer;
+
+transition:all 0.3s ease;
+}
+.user-btn{
+right:110px;
 
 background:transparent;
 color:#fff;
-
 border:2px solid #ffd700;
-border-radius:8px;
-
-cursor:pointer;
-transition:all 0.3s ease;
 }
+
 .user-btn:hover{
 background:#ffd700;
 color:#000;
-transform:scale(1.05);
+}
+
+.logout-fixed{
+right:20px;
+
+background:transparent;
+color:#00bfff;
+border:2px solid #00bfff;
 }
 
 .back-fixed{
