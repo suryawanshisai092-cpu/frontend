@@ -495,7 +495,7 @@ fetch(API + "/deleteUser?id="+id)
 .then(res=>res.text())
 .then(data=>{
 
-.then(data=>{
+
 
 if(data==="SUCCESS"){
 alert("User deleted");
