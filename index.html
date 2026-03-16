@@ -144,7 +144,10 @@ href="https://img.freepik.com/free-vector/gradient-high-school-logo_23-214964772
 <div id="dashboard">
 
   <h2 id="welcomeText">Welcome Admin</h2>
-
+<button class="btn" onclick="openUserManagement()">
+User Management
+</button>
+	
   <div class="dashboard-box">
     <input id="noteTitle" placeholder="Title">
     <input id="noteDesc" placeholder="Description">
@@ -186,7 +189,17 @@ href="https://img.freepik.com/free-vector/gradient-high-school-logo_23-214964772
 
   <button class="logout-fixed" onclick="logout()">Logout</button>
 </div>
+<!-- ================= USERS PAGE ================= -->
 
+<div id="usersPage" style="display:none;">
+
+<h2>User Management</h2>
+
+<button class="btn" onclick="goBackAdmin()">⬅ Back</button>
+
+<div class="cards" id="usersList"></div>
+
+</div>
 
 <!-- ================= STUDENT PAGE ================= -->
 <div id="studentPage">
