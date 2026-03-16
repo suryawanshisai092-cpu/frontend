@@ -510,6 +510,29 @@ alert("Admin account cannot be deleted");
 
 }
 
+/* ========= Student Search Input ========= */
+document.getElementById("searchInput").addEventListener("input", function(){
+
+const search = this.value.toLowerCase();
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+const title = card.querySelector("h3").innerText.toLowerCase();
+const desc = card.querySelector("p").innerText.toLowerCase();
+
+if(title.includes(search) || desc.includes(search)){
+card.style.display = "block";
+}
+else{
+card.style.display = "none";
+}
+
+});
+
+});
+
 
 /* ========= LOGOUT ========= */
 
