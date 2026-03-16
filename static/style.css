@@ -1047,20 +1047,28 @@ cursor:pointer;
 }
 #usersList{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-max-width:900px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+max-width:1000px;
 margin:60px auto;
+padding:0 20px;
 }
 #usersList button{
 width:100%;
-margin-top:10px;
-padding:8px;
-background:#444;
-color:white;
+padding:9px;
+
 border:none;
-border-radius:6px;
+border-radius:8px;
+
+background:#2e3440;
+color:#fff;
+
 cursor:pointer;
+transition:all 0.25s ease;
+}
+
+#usersList button:hover{
+background:#ff4d4d;
 }
 
 #usersList button:hover{
@@ -1069,4 +1077,26 @@ background:#e74c3c;
 #usersPage h2{
 text-align:center;
 margin-top:60px;
+}
+#usersList h3{
+font-size:20px;
+color:#ffffff;
+margin-bottom:6px;
+}
+#usersList .card{
+background:#081a34;
+padding:22px;
+border-radius:14px;
+
+box-shadow:0 8px 20px rgba(0,0,0,0.35);
+transition:all 0.3s ease;
+}
+#usersList .card:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 25px rgba(0,0,0,0.45);
+}
+#usersList p{
+color:#b9c6d8;
+font-size:14px;
+margin-bottom:14px;
 }
