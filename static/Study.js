@@ -433,6 +433,23 @@ function addNote(){
 
 }
 
+
+/*===========Users Admin List===========*/
+function openUserManagement(){
+
+dashboard.style.display="none";
+usersPage.style.display="block";
+
+loadUsers();
+
+}
+
+function goBackAdmin(){
+
+usersPage.style.display="none";
+dashboard.style.display="flex";
+
+}
 /* ========= LOGOUT ========= */
 
 function logout(){
