@@ -1050,14 +1050,14 @@ margin-bottom:40px;
 
 
 #usersList{
-width:90%;
-max-width:1100px;
-margin:60px auto;
+width:95%;
+max-width:1200px;
+margin:50px auto;
 
 display:flex;
 flex-direction:column;
 
-gap:10px;
+gap:12px;
 }
 
 
@@ -1078,11 +1078,7 @@ transition:all 0.25s ease;
 
 }
 
-.user-row:hover{
 
-background:#0e2647;
-
-}
 
 .user-row:hover{
 background:#0e2647;
@@ -1104,7 +1100,7 @@ color:#b8c4d9;
 opacity:0;
 font-size:18px;
 color:#ff4d4d;
-
+margin-left:20px;
 cursor:pointer;
 
 transition:0.2s;
@@ -1143,8 +1139,7 @@ transition:all 0.3s ease;
 }
 
 .back-btn:hover{
-
 background:#ffd700;
 color:#000;
-
+transform:scale(1.05);
 }
