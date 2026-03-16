@@ -450,6 +450,59 @@ usersPage.style.display="none";
 dashboard.style.display="flex";
 
 }
+
+
+function loadUsers(){
+
+fetch(API + "/getUsers")
+.then(res=>res.json())
+.then(users=>{
+
+const box=document.getElementById("usersList");
+box.innerHTML="";
+
+users.forEach(u=>{
+
+box.innerHTML+=`
+
+<div class="card">
+
+<h3>${u.username}</h3>
+<p>${u.email}</p>
+
+<button onclick="deleteUser(${u.id})">
+Delete
+</button>
+
+</div>
+
+`;
+
+});
+
+});
+
+}
+
+
+function deleteUser(id){
+
+if(!confirm("Delete this user?")) return;
+
+fetch(API + "/deleteUser?id="+id)
+.then(res=>res.text())
+.then(data=>{
+
+if(data==="SUCCESS"){
+alert("User deleted");
+loadUsers();
+}
+
+});
+
+}
+
+
 /* ========= LOGOUT ========= */
 
 function logout(){
