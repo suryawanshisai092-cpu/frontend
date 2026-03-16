@@ -180,37 +180,35 @@ function checkLogin(){
     body:`username=${encodeURIComponent(u)}&password=${encodeURIComponent(p)}`
 
   })
-  .then(res=>res.text())
-  .then(data=>{
+ .then(data=>{
 
-    panel.style.display="none";
-    dashboard.style.display="none";
-    studentPage.style.display="none";
+data = data.trim();   // 🔥 important
 
-    if(data==="ADMIN"){
+panel.style.display="none";
+dashboard.style.display="none";
+studentPage.style.display="none";
 
-      dashboard.style.display="flex";
-      welcomeText.innerText="Welcome Admin";
+if(data==="ADMIN"){
 
-      loadAdminNotes();
+  dashboard.style.display="flex";
+  welcomeText.innerText="Welcome Admin";
+  loadAdminNotes();
 
-    }
+}
+else if(data==="STUDENT"){
 
-    else if(data==="STUDENT"){
+  studentPage.style.display="block";
+  openStudentSection("notes");
 
-      studentPage.style.display="block";
-      openStudentSection("notes");
+}
+else{
 
-    }
+  panel.style.display="block";
+  loginError.textContent="Invalid username or password";
 
-    else{
+}
 
-      panel.style.display="block";
-      loginError.textContent="Invalid username or password";
-
-    }
-
-  });
+});
 
 }
 
