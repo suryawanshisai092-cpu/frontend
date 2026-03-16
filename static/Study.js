@@ -495,9 +495,15 @@ fetch(API + "/deleteUser?id="+id)
 .then(res=>res.text())
 .then(data=>{
 
+.then(data=>{
+
 if(data==="SUCCESS"){
 alert("User deleted");
 loadUsers();
+}
+
+else if(data==="CANNOT_DELETE_ADMIN"){
+alert("Admin account cannot be deleted");
 }
 
 });
