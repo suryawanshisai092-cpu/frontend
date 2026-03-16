@@ -458,23 +458,24 @@ fetch(API + "/getUsers")
 .then(res=>res.json())
 .then(users=>{
 
-console.log(users);   
+const box = document.getElementById("usersList");
 
-const box=document.getElementById("usersList");
 box.innerHTML="";
 
 users.forEach(u=>{
 
-box.innerHTML+=`
+box.innerHTML += `
 
-<div class="card">
+<div class="user-row">
 
+<div class="user-info">
 <h3>${u.username}</h3>
 <p>${u.email}</p>
+</div>
 
-<button onclick="deleteUser(${u.id})">
-Delete
-</button>
+<div class="delete-icon" onclick="deleteUser(${u.id})">
+<i class="fa-solid fa-trash"></i>
+</div>
 
 </div>
 
@@ -495,15 +496,8 @@ fetch(API + "/deleteUser?id="+id)
 .then(res=>res.text())
 .then(data=>{
 
-
-
 if(data==="SUCCESS"){
-alert("User deleted");
 loadUsers();
-}
-
-else if(data==="CANNOT_DELETE_ADMIN"){
-alert("Admin account cannot be deleted");
 }
 
 });
