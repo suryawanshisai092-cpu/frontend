@@ -1144,3 +1144,17 @@ background:#ffd700;
 color:#000;
 transform:scale(1.05);
 }
+
+.panel-back{
+  position: relative;
+  margin-top: 15px;
+  top: unset;
+  right: unset;
+}
+
+#panel .back-btn{
+  position: relative;
+  top: unset;
+  right: unset;
+  margin-top: 15px;
+}
